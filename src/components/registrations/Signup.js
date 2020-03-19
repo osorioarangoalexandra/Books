@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+
 class Signup extends Component {
   constructor(props) {
     super(props);
     this.state = { 
       username: '',
       email: '',
+      city: '',
+      country: '',
+      phone: '',
       password: '',
       password_confirmation: '',
       errors: ''
@@ -19,10 +23,13 @@ handleChange = (event) => {
   };
 handleSubmit = (event) => {
     event.preventDefault()
-    const {username, email, password, password_confirmation} = this.state
+    const {username, email, city, country, phone, password, password_confirmation} = this.state
     let user = {
       username: username,
       email: email,
+      city: city,
+      country: country,
+      phone: phone,
       password: password,
       password_confirmation: password_confirmation
     }
@@ -52,7 +59,7 @@ handleErrors = () => {
     )
   }
 render() {
-    const {username, email, password, password_confirmation} = this.state
+    const {username, email, city, country, phone, password, password_confirmation} = this.state
 return (
       <div>
         <h1>Sign Up</h1>
@@ -69,6 +76,27 @@ return (
             type="text"
             name="email"
             value={email}
+            onChange={this.handleChange}
+          />
+          <input
+            placeholder="city"
+            type="text"
+            name="city"
+            value={city}
+            onChange={this.handleChange}
+          />
+          <input
+            placeholder="country"
+            type="text"
+            name="country"
+            value={country}
+            onChange={this.handleChange}
+          />
+          <input
+            placeholder="phone"
+            type="number"
+            name="phone"
+            value={phone}
             onChange={this.handleChange}
           />
           <input 
