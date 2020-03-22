@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
-import Home from './components/registrations/Home'
-import Login from './components/registrations/Login'
-import Signup from './components/registrations/Signup'
+import Home from './componentes/registrations/Home'
+import Login from './componentes/registrations/Login'
+import Signup from './componentes/registrations/Signup'
 
 class App extends Component {
   constructor(props) {
@@ -71,6 +71,8 @@ render() {
             
           </Switch>
         </BrowserRouter>
+
+       
       </div>
     );
   }

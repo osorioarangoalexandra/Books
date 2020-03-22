@@ -14,6 +14,8 @@ class BooksContainer extends Component {
       }
       }
     
+
+      
   getBooks() {
     axios.get('/api/v1/books')
     .then(response => {
@@ -21,6 +23,16 @@ class BooksContainer extends Component {
       })
       .catch(error => console.log(error))
   }
+
+  // getBooksbyUser() {
+  //   axios.get('/api/v1/books/' + this.state.currentUser.id)
+    
+  //   .then(response => {
+  //     this.setState({books: response.data})
+  //     })
+  //     .catch(error => console.log(error))
+  //     console.log(this.getBooksbyUser)
+  // }
 
   
   createBook = (e) => {
@@ -41,7 +53,7 @@ class BooksContainer extends Component {
         this.setState({
           books: books,
           namevalue: '',
-          author: '',
+          authorvalue: '',
           quality: '',
           language: '',
           genre: ''
@@ -76,12 +88,13 @@ class BooksContainer extends Component {
   componentDidMount() {
     this.getBooks()
     }
+
       
 
   render(){
     return (
-   
-    <div className="form-style-3">
+   <div className= "gralform">
+    <section className="form-style-3">
       
       <br></br>
       <fieldset><legend>General Info</legend>
@@ -146,19 +159,23 @@ class BooksContainer extends Component {
           </label>
       </fieldset>
 
-
-              <ul>
+      
+      </section>
+      <br></br>
                 {this.state.books.map((book) => {
                   return(
-                    <li key={book.id}>
-                      <label>{book.name}</label>
-                    </li>
+                    
+                    <div className="book"> 
+                       <div  key={book.id}>
+                       <label>{book.name}</label>
+                       <img src="http://debakatas.com/cover/necronomicon.jpg" alt=""/>
+                      
+                    </div>
+                </div>
                   )       
                 })}        
-              </ul>
-                                  
+    </div>                              
               
-      </div>
           
             
     )
